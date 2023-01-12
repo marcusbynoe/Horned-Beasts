@@ -1,9 +1,9 @@
 import React from 'react';
 import HornedBeast from './HornedBeast';
-import data from './Data/data.json';
 import './Main.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+
 
 class Main extends React.Component {
   render() {
@@ -11,17 +11,23 @@ class Main extends React.Component {
       <>
         <main>
           <Container>
-            <Row xs={1} sm={2} md={3} lg={4}>
+            <Row>
+              {this.props.beastData.map((hornedBeast, id) => {
+                return (
 
-              {data.map((hornedbeast) => {
-                return <HornedBeast id={hornedbeast._id}
-                  image_url={hornedbeast.image_url}
-                  title={hornedbeast.title}
-                  description={hornedbeast.description}
-                  keyword={hornedbeast.keyword}
-                  horns={hornedbeast.horns} 
-                  handleOpenModal={this.props.handleOpenModal}
+                  <HornedBeast
+                    beast={hornedBeast}
+                    key={id}
+                    display={this.props.handleOpenModal}
+                    // id={hornedBeast._id}
+                    // image_url={hornedBeast.image_url}
+                    // title={hornedBeast.title}
+                    // description={hornedBeast.description}
+                    // keyword={hornedBeast.keyword}
+                    // horns={hornedBeast.horns}
+                    // handleOpenModal={this.props.handleOpenModal}
                   />
+                )
               })}
             </Row>
           </Container>

@@ -15,6 +15,7 @@ class HornedBeast extends React.Component {
     this.setState({
       favorites: this.state.favorites + 1
     })
+    this.props.display(this.props.beast)
   }
 
 
@@ -29,12 +30,12 @@ class HornedBeast extends React.Component {
 
         <Col>
           <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" onClick={this.handleFav} src={this.props.image_url} alt={this.props.title} />
+            <Card.Img variant="top" onClick={this.handleFav} src={this.props.beast.image_url} alt={this.props.title} />
             <Card.Body>
-              <Card.Title /*onClick={this.handleNameClick}*/>{this.props.title}</Card.Title>
+              <Card.Title onClick={this.handleNameClick}>{this.props.beast.title}</Card.Title>
               <Card.Text>💖{this.state.favorites} Favorites</Card.Text>
               <Card.Text>
-                {this.props.description}
+                {this.props.beast.description}
               </Card.Text>
             </Card.Body>
           </Card>
