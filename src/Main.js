@@ -14,7 +14,14 @@ class Main extends React.Component {
             <Row xs={1} sm={2} md={3} lg={4}>
 
               {data.map((hornedbeast) => {
-                return <HornedBeast id={hornedbeast._id} image_url={hornedbeast.image_url} title={hornedbeast.title} description={hornedbeast.description} keyword={hornedbeast.keyword} horns={hornedbeast.horns} />
+                return <HornedBeast id={hornedbeast._id}
+                  image_url={hornedbeast.image_url}
+                  title={hornedbeast.title}
+                  description={hornedbeast.description}
+                  keyword={hornedbeast.keyword}
+                  horns={hornedbeast.horns} 
+                  handleOpenModal={this.props.handleOpenModal}
+                  />
               })}
             </Row>
           </Container>

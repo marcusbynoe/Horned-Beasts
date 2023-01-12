@@ -6,17 +6,47 @@ import Footer from './Footer';
 
 
 // 2nd Class Component
-class App extends React.Component{
+class App extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     showModal: false,
+  //     selectedBeast: ''
+  //   }
+  // }
+
+  // handleOpenModal = (title) => {
+  //   this.setState({
+  //     showModal: true,
+  //     selectedBeast: title
+  //   });
+  // }
+
+  // handleCloseModal = () => {
+  //   this.setState({
+  //     showModal: false,
+  //   });
+  // }
+
+
+
   render() {
     return (
       <>
         <Header />
-        <Main />
+        <Main
+          // handleOpenModal={this.handleOpenModal}
+        />
+        {/* <Modal show={this.state.showModal} onHide={this.handleCloseModal}>
+          <Modal.Header closeButton>{this.state.selectedBeast}</Modal.Header>
+        </Modal> */}
         <Footer />
       </>
     )
   }
-};
+}
+
+
 
 
 // 3rd Export the compnent 
