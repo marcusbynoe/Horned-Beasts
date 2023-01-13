@@ -5,6 +5,8 @@ import Main from './Main';
 import Footer from './Footer';
 import data from './Data/data.json';
 import SelectedBeast from './SelectedBeast';
+import Form from 'react-bootstrap/Form';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 // 2nd Class Component
 class App extends React.Component {
@@ -18,6 +20,7 @@ class App extends React.Component {
       description: '',
       horns: '',
       image_url: '',
+
     }
   }
 
@@ -34,12 +37,29 @@ class App extends React.Component {
     });
   }
 
+  handleSelect = (dropDown) => {
+    
+
+  }
 
 
   render() {
     return (
       <>
         <Header />
+
+        
+
+
+        <FloatingLabel controlId="floatingSelect" label="Works with selects">
+          <Form.Select name="selected" onChange={this.handleSelect}>
+            <option>Click here to view horns!</option>
+            <option value="all">All</option>
+            <option value="even">Even</option>
+            <option value="odd">Odd</option>
+          </Form.Select>
+        </FloatingLabel>
+
         <Main
           beastData={this.state.beastData}
           handleOpenModal={this.handleOpenModal}
@@ -49,9 +69,12 @@ class App extends React.Component {
           openModal={this.state.showModal}
           closeModal={this.handleCloseModal}
         />
-        {/* <Modal show={this.state.showModal} onHide={this.handleCloseModal}>
-          <Modal.Header closeButton>{this.state.selectedBeast}</Modal.Header>
-        </Modal> */}
+
+
+
+
+
+
         <Footer />
       </>
     )
