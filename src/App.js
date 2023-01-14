@@ -37,8 +37,22 @@ class App extends React.Component {
     });
   }
 
-  handleSelect = (dropDown) => {
-    
+  handleSelect = (event) => {
+
+    let selected = event.target.value;
+
+    let newData = data.filter(beastData => {
+      if (selected === 'All') {
+        return beastData;
+      } else {
+        return beastData.horns === +selected
+      }
+    })
+
+
+    this.setState({
+      beastData: newData
+    })
 
   }
 
@@ -48,15 +62,17 @@ class App extends React.Component {
       <>
         <Header />
 
-        
+
 
 
         <FloatingLabel controlId="floatingSelect" label="Works with selects">
           <Form.Select name="selected" onChange={this.handleSelect}>
-            <option>Click here to view horns!</option>
-            <option value="all">All</option>
-            <option value="even">Even</option>
-            <option value="odd">Odd</option>
+            <option >Click here to search horns!</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="100">100</option>
+            <option value="All">All</option>
           </Form.Select>
         </FloatingLabel>
 
